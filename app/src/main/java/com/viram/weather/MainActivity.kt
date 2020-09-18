@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
     fun loadFragment(fragment: Fragment){
         val transaction: FragmentTransaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.main_fragment_container, fragment)
-        fragmentTransaction.addToBackStack("")
+        transaction.addToBackStack("")
         transaction.commit()
     }
 }
