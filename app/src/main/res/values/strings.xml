@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">WeatherApp</string>
+    <string name="title_home">Home</string>
+    <string name="title_city">City</string>
+    <string name="title_help">Help</string>
+    <string name="internet_not_connected">Internet not available</string>
+    <string name="title_activity_maps">Map</string>
+</resources>
