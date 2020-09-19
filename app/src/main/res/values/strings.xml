@@ -5,4 +5,8 @@
     <string name="title_help">Help</string>
     <string name="internet_not_connected">Internet not available</string>
     <string name="title_activity_maps">Map</string>
+    <string name="add_city">Add City</string>
+    <string name="searching_location">Searching  address</string>
+    <string name="not_getting_address">Could not get address...</string>
+    <string name="done">Done</string>
 </resources>

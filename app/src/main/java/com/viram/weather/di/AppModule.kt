@@ -1,6 +1,10 @@
 package com.viram.weather.di
 
+import android.app.Application
+import androidx.room.Room
 import com.viram.weather.api.WeatherService
+import com.viram.weather.db.CityDao
+import com.viram.weather.db.WeatherDb
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
@@ -21,5 +25,18 @@ class AppModule {
             .build()
             .create(WeatherService::class.java)
     }
+    @Singleton
+    @Provides
+    fun provideDb(app: Application): WeatherDb {
+        return Room
+            .databaseBuilder(app, WeatherDb::class.java, "weather.db")
+            .fallbackToDestructiveMigration()
+            .build()
+    }
 
+    @Singleton
+    @Provides
+    fun provideUserCityDao(db: WeatherDb): CityDao {
+        return db.userCityDao()
+    }
 }

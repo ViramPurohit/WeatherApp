@@ -18,7 +18,6 @@ import android.view.ViewGroup
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.gms.location.FusedLocationProviderClient
@@ -34,6 +33,8 @@ import javax.inject.Inject
 
 
 class HomeFragment : Fragment() , Injectable {
+
+    private var mLocation: Location? = null
 
     private val PERMISSION_REQUEST_CODE: Int = 101
 
@@ -59,7 +60,10 @@ class HomeFragment : Fragment() , Injectable {
             ViewModelProvider(this, viewModelFactory).get(HomeViewModel::class.java)
 
         val root = inflater.inflate(R.layout.fragment_home, container, false)
-
+        /*
+        * Calling setRetainInstance(true) inside Fragment protect from destroy and recreate and retain the current instance of the fragment when the activity is recreated.
+        * */
+        retainInstance = true
         return root
     }
 
@@ -75,7 +79,7 @@ class HomeFragment : Fragment() , Injectable {
         checkLocationPermission()
 
         fab_add_city.setOnClickListener {
-            (activity as MainActivity).loadFragment(AddCityFragment.newInstance())
+            (activity as MainActivity).loadFragment(AddCityFragment.newInstance(mLocation))
         }
     }
 
@@ -125,6 +129,7 @@ class HomeFragment : Fragment() , Injectable {
         fusedLocationClient.lastLocation
             .addOnSuccessListener { location: Location? ->
                 // Got last known location. In some rare situations this can be null.
+                mLocation = location
                 Log.e("location latitude", location?.latitude.toString())
                 Log.e("location longitude", location?.longitude.toString())
                 getWeatherFromServer(location?.latitude, location?.longitude)

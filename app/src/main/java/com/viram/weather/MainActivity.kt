@@ -1,6 +1,7 @@
 package com.viram.weather
 
 import android.os.Bundle
+import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -9,21 +10,26 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.viram.weather.ui.city.CityFragment
 import com.viram.weather.ui.help.HelpFragment
 import com.viram.weather.ui.home.HomeFragment
+import com.viram.weather.viewmodel.OnFragmentInteractionListener
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.support.HasSupportFragmentInjector
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
 
-class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
+class MainActivity : AppCompatActivity(), HasSupportFragmentInjector,
+    OnFragmentInteractionListener {
     @Inject
     lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Fragment>
+
+
 
     override fun supportFragmentInjector() = dispatchingAndroidInjector
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        setSupportActionBar(toolbar)
         val navView: BottomNavigationView = findViewById(R.id.bottom_nav_view)
         navView.setOnNavigationItemSelectedListener(object :
             BottomNavigationView.OnNavigationItemSelectedListener {
@@ -53,5 +59,21 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
         transaction.replace(R.id.main_fragment_container, fragment)
         transaction.addToBackStack("")
         transaction.commit()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        getMenuInflater().inflate(R.menu.action_menu, menu)
+        return true
+    }
+
+    override fun onSetTitle(_title: String) {
+        toolbar.title = _title
+    }
+
+    override fun onSetBackButton() {
+
+    }
+    override fun onSetDoneButton() {
+
     }
 }
