@@ -12,12 +12,18 @@
         android:id="@+id/main_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.home.HomeFragment">
+        tools:context=".ui.home.HomeFragment"
+        app:layout_scrollFlags="scroll|enterAlways">
 
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nst_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/const_main"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/img_home_banner"
@@ -59,7 +65,7 @@
             </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
+        </androidx.core.widget.NestedScrollView>
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab_add_city"
             android:layout_width="wrap_content"
@@ -67,7 +73,7 @@
             android:layout_gravity="bottom|end"
             android:layout_margin="16dp"
             android:src="@drawable/ic_add_location_24"
-            app:layout_anchor="@id/const_main"
+            app:layout_anchor="@id/nst_scroll"
             app:layout_anchorGravity="bottom|right|end" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

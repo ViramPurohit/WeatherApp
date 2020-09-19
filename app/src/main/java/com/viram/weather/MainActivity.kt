@@ -1,6 +1,8 @@
 package com.viram.weather
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.KeyEvent
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
@@ -71,18 +73,22 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector,
         toolbar.title = _title
     }
 
-    override fun onSetBookMarkVisibilityButton(isVisible : Boolean) {
+    override fun onSetBookMarkVisibilityButton(isVisible: Boolean) {
         isBookMarkVisible = isVisible
     }
 
-    override fun onBackPressed() {
-        super.onBackPressed()
-        onSetBookMarkVisibilityButton(false)
+    override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            onSetBookMarkVisibilityButton(false)
 
-        if (supportFragmentManager.backStackEntryCount > 0) {
-            supportFragmentManager.popBackStack()
-        } else {
-            super.onBackPressed();
+            if (supportFragmentManager.backStackEntryCount > 1) {
+                supportFragmentManager.popBackStack()
+            } else {
+                finish()
+            }
+            return true
         }
+        return false
     }
+
 }
