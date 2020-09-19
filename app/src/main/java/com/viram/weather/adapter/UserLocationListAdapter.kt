@@ -1,62 +1,57 @@
 package com.viram.weather.adapter
 
-import android.graphics.Typeface
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.viram.weather.R
-import com.viram.weather.model.WeatherResult
+import com.viram.weather.vo.UserCity
+import kotlinx.android.synthetic.main.list_item_user_location.view.*
 
 
 class UserLocationListAdapter(
-    var casePartyList: List<WeatherResult>,
     var itemClickListener: onItemClickListener
 ) : RecyclerView.Adapter<UserLocationListAdapter.InvolveUserClaimViewHolder>() {
 
+    private var userCitys = emptyList<UserCity>() // Cached copy of words
+
     interface onItemClickListener {
         fun onItemClick(
-            claimDetails: WeatherResult
+            userCity: UserCity
+        )
+        fun onItemDeleteClick(
+            city: String
         )
     }
 
-    fun refreshSelection(checked: Boolean) {
+    internal fun setCity(city: List<UserCity>) {
+        this.userCitys = city
         notifyDataSetChanged()
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = InvolveUserClaimViewHolder(
         LayoutInflater.from(parent.context).inflate(R.layout.list_item_user_location, parent, false)
     )
-    override fun getItemCount() = casePartyList.size
+    override fun getItemCount() = userCitys.size
 
     override fun onBindViewHolder(holder: InvolveUserClaimViewHolder, position: Int) {
-        holder.bind(casePartyList[position])
+        holder.bind(userCitys[position])
     }
 
     inner class InvolveUserClaimViewHolder(mView: View) : RecyclerView.ViewHolder(mView) {
 
 
-        fun bind(daItem: WeatherResult?) {
-//            if (daItem != null) {
-//                itemView.txt_ecr_unregister_case_number.text = daItem.najmCaseNo
-//                itemView.txt_ecr_unregister_plate_number.text = daItem.plateNo
-//
-//
-//                itemView.txt_ecr_unregister_case_number
-//                    .setTypeface(itemView.txt_ecr_unregister_case_number.typeface, Typeface.BOLD)
-//
-//                itemView.txt_ecr_unregister_plate_number
-//                    .setTypeface(itemView.txt_ecr_unregister_plate_number.typeface, Typeface.BOLD)
-//
-//                itemView.ecr_btnClaimDetail.text = itemView.context.getString(R.string.ecr_unfinished_claim_proceed)
-//
-//                itemView.ecr_btnClaimDetail.visibility = View.VISIBLE
-//                itemView.img_ecr_old_case.visibility = View.GONE
-//
-//                itemView.ecr_btnClaimDetail.setOnClickListener {
-//                    itemClickListener.onItemClick(daItem)
-//                }
-//
-//            }
+        fun bind(userCity: UserCity) {
+            itemView.city_name.text = userCity.city
+            itemView.user_address.text = userCity.address
+
+
+            itemView.main_view.setOnClickListener {
+                itemClickListener.onItemClick(userCity)
+            }
+
+            itemView.img_delete.setOnClickListener {
+                itemClickListener.onItemDeleteClick(userCity.city)
+            }
 
 
         }

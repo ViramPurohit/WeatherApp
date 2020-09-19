@@ -8,5 +8,6 @@
     <string name="add_city">Add City</string>
     <string name="searching_location">Searching  address</string>
     <string name="not_getting_address">Could not get address...</string>
-    <string name="done">Done</string>
+    <string name="bookmarked">BookMarked</string>
+    <string name="today_forecast">Today’s forecast</string>
 </resources>

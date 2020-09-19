@@ -6,11 +6,11 @@ import com.google.gson.annotations.SerializedName
 @Entity(primaryKeys = ["city"])
 class UserCity (
     @field:SerializedName("city")
-    val city: String,
+    var city: String,
     @field:SerializedName("address")
-    val address: String,
+    var address: String,
     @field:SerializedName("latitude")
-    val latitude: Double,
+    var latitude: Double,
     @field:SerializedName("longitude")
-    val longitude: Double
+    var longitude: Double
 )

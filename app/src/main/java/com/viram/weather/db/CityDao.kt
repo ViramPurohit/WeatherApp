@@ -12,6 +12,10 @@ interface CityDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(userCity: UserCity)
 
-    @Query("SELECT * FROM UserCity WHERE city = :city")
-    fun findByLogin(city: String): LiveData<UserCity>
+    @Query("DELETE FROM  UserCity WHERE city  = :userCity ")
+    fun deleteCity(userCity: String)
+
+
+    @Query("SELECT * FROM UserCity")
+    fun getAllSavedCity(): LiveData<List<UserCity>>
 }

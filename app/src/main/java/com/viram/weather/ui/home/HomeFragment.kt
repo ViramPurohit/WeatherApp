@@ -18,6 +18,7 @@ import android.view.ViewGroup
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.gms.location.FusedLocationProviderClient
@@ -25,15 +26,19 @@ import com.google.android.gms.location.LocationServices
 import com.viram.weather.MainActivity
 import com.viram.weather.R
 import com.viram.weather.Util
+import com.viram.weather.adapter.UserLocationListAdapter
 import com.viram.weather.api.ApiStage
 import com.viram.weather.di.Injectable
 import com.viram.weather.ui.city.AddCityFragment
+import com.viram.weather.ui.city.CityFragment
+import com.viram.weather.vo.UserCity
 import kotlinx.android.synthetic.main.fragment_home.*
 import javax.inject.Inject
 
 
 class HomeFragment : Fragment() , Injectable {
 
+    private var userlocationAdapter: UserLocationListAdapter? =null
     private var mLocation: Location? = null
 
     private val PERMISSION_REQUEST_CODE: Int = 101
@@ -89,6 +94,31 @@ class HomeFragment : Fragment() , Injectable {
             layoutManager = LinearLayoutManager(mContext)
 
         }
+        /*
+        * set adapter
+        * */
+        userlocationAdapter = UserLocationListAdapter(object : UserLocationListAdapter.onItemClickListener{
+            override fun onItemClick(userCity: UserCity) {
+                (activity as MainActivity).loadFragment(CityFragment.newInstance(userCity))
+            }
+
+            override fun onItemDeleteClick(city: String) {
+
+                homeViewModel.deleteUserCity(city)
+
+            }
+
+        })
+        recyclerView_userCity.adapter = userlocationAdapter
+
+        getAllCity()
+    }
+
+    fun getAllCity(){
+        homeViewModel.allSavedCity.observe(viewLifecycleOwner, Observer { list->
+
+            userlocationAdapter?.setCity(list)
+        })
     }
     fun checkLocationPermission(){
         if (ContextCompat.checkSelfPermission(

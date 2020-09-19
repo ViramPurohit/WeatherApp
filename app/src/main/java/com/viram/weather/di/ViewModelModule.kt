@@ -2,6 +2,7 @@ package com.viram.weather.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.viram.weather.ui.city.AddCityViewModel
 import com.viram.weather.ui.city.CityViewModel
 import com.viram.weather.ui.home.HomeViewModel
 import com.viram.weather.ui.help.HelpViewModel
@@ -22,6 +23,11 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(CityViewModel::class)
     abstract fun bindCityViewModel(cityViewModel: CityViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(AddCityViewModel::class)
+    abstract fun bindAddCityViewModel(addCityViewModel: AddCityViewModel): ViewModel
 
     @Binds
     @IntoMap

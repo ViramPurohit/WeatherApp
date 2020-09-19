@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.viram.weather.ui.city.CityFragment
 import com.viram.weather.ui.help.HelpFragment
 import com.viram.weather.ui.home.HomeFragment
 import com.viram.weather.viewmodel.OnFragmentInteractionListener
@@ -19,6 +18,8 @@ import javax.inject.Inject
 
 class MainActivity : AppCompatActivity(), HasSupportFragmentInjector,
     OnFragmentInteractionListener {
+    private var isBookMarkVisible: Boolean = false
+
     @Inject
     lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Fragment>
 
@@ -36,15 +37,11 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector,
             override fun onNavigationItemSelected(menuItem: MenuItem): Boolean {
                 val id: Int = menuItem.getItemId()
                 if (id == R.id.navigation_home) {
-                    toolbar.title = resources.getString(R.string.title_home)
+                    onSetTitle(resources.getString(R.string.title_home))
                     loadFragment(HomeFragment())
                     return true
-                } else if (id == R.id.navigation_city) {
-                    toolbar.title = resources.getString(R.string.title_city)
-                    loadFragment(CityFragment())
-                    return true
                 } else if (id == R.id.navigation_help) {
-                    toolbar.title = resources.getString(R.string.title_help)
+                    onSetTitle(resources.getString(R.string.title_help))
                     loadFragment(HelpFragment())
                     return true
                 }
@@ -62,7 +59,11 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector,
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        getMenuInflater().inflate(R.menu.action_menu, menu)
+        val inflater = menuInflater
+        inflater.inflate(R.menu.action_menu, menu)
+        val bookmarked = menu!!.findItem(R.id.action_bookmarked)
+
+        bookmarked.isVisible = isBookMarkVisible
         return true
     }
 
@@ -70,10 +71,18 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector,
         toolbar.title = _title
     }
 
-    override fun onSetBackButton() {
-
+    override fun onSetBookMarkVisibilityButton(isVisible : Boolean) {
+        isBookMarkVisible = isVisible
     }
-    override fun onSetDoneButton() {
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+        onSetBookMarkVisibilityButton(false)
+
+        if (supportFragmentManager.backStackEntryCount > 0) {
+            supportFragmentManager.popBackStack()
+        } else {
+            super.onBackPressed();
+        }
     }
 }

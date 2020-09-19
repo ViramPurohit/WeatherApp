@@ -7,11 +7,6 @@
         android:title="@string/title_home" />
 
     <item
-        android:id="@+id/navigation_city"
-        android:icon="@drawable/ic_baseline_location_city_24"
-        android:title="@string/title_city" />
-
-    <item
         android:id="@+id/navigation_help"
         android:icon="@drawable/ic_baseline_help_24"
         android:title="@string/title_help" />

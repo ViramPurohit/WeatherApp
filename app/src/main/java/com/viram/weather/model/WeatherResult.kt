@@ -20,8 +20,8 @@ class WeatherResult (
 
 data class Coord (
 
-    @SerializedName("lon") val lon : Int,
-    @SerializedName("lat") val lat : Int
+    @SerializedName("lon") val lon : Double,
+    @SerializedName("lat") val lat : Double
 )
 data class Weather (
 

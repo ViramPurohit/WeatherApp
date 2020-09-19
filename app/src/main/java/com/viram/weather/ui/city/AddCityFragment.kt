@@ -11,10 +11,10 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.GoogleMap.OnCameraIdleListener
 import com.google.android.gms.maps.GoogleMap.OnMarkerDragListener
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
@@ -24,16 +24,24 @@ import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import com.viram.weather.R
 import com.viram.weather.Util
+import com.viram.weather.di.Injectable
 import com.viram.weather.viewmodel.OnFragmentInteractionListener
+import com.viram.weather.vo.UserCity
 import kotlinx.android.synthetic.main.add_city_fragment.*
 import java.io.IOException
 import java.util.*
+import javax.inject.Inject
 
 
-class AddCityFragment : Fragment(), OnMapReadyCallback {
+class AddCityFragment : Fragment(), Injectable,OnMapReadyCallback {
+
+    @Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
 
     private lateinit var mContext: Context
     private var mListener: OnFragmentInteractionListener? = null
+
+    var user : UserCity? = null
 
     companion object {
         var mLocation: Location? = null
@@ -48,7 +56,8 @@ class AddCityFragment : Fragment(), OnMapReadyCallback {
     private var mMapFragment: SupportMapFragment? = null
 
     private lateinit var mMap: GoogleMap
-    private lateinit var viewModel: AddCityViewModel
+
+    private lateinit var addCityViewModel: AddCityViewModel
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -70,8 +79,8 @@ class AddCityFragment : Fragment(), OnMapReadyCallback {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        viewModel =
-            ViewModelProvider(this).get(AddCityViewModel::class.java)
+        addCityViewModel =
+            ViewModelProvider(this, viewModelFactory).get(AddCityViewModel::class.java)
 
         val root = inflater.inflate(R.layout.add_city_fragment, container, false)
         setHasOptionsMenu(true)
@@ -84,8 +93,11 @@ class AddCityFragment : Fragment(), OnMapReadyCallback {
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.action_menu_done -> {
-                Util.showToastLong(mContext,"on Click")
+            R.id.action_bookmarked -> {
+                user?.let { addCityViewModel.addUserCity(it) }
+
+                parentFragmentManager.popBackStack()
+
             }
         }
         return true
@@ -97,6 +109,7 @@ class AddCityFragment : Fragment(), OnMapReadyCallback {
         mMapFragment?.getMapAsync(this)
 
         mListener?.onSetTitle(mContext.getString(R.string.add_city))
+        mListener?.onSetBookMarkVisibilityButton(true)
     }
 
 
@@ -155,8 +168,32 @@ class AddCityFragment : Fragment(), OnMapReadyCallback {
             if (addresses.isNotEmpty()) {
 
                 val fetchedAddress: Address = addresses[0]
-                Log.d("fetchedAddress",fetchedAddress.getAddressLine(0))
+                Log.d("fetchedAddress", fetchedAddress.getAddressLine(0))
                 user_location.setText(fetchedAddress.getAddressLine(0))
+                user = if(fetchedAddress.locality != null){
+                    UserCity(
+                        fetchedAddress.locality ,
+                        fetchedAddress.getAddressLine(0),
+                        latitude,
+                        longitude
+                    )
+                }else if(fetchedAddress.subAdminArea != null){
+                    UserCity(
+                        fetchedAddress.subAdminArea ,
+                        fetchedAddress.getAddressLine(0),
+                        latitude,
+                        longitude
+                    )
+                }else {
+                    UserCity(
+                        "No City" ,
+                        fetchedAddress.getAddressLine(0),
+                        latitude,
+                        longitude
+                    )
+                }
+
+
 
             } else {
                 user_location.setText(R.string.searching_location)
