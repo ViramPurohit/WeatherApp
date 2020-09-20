@@ -13,6 +13,7 @@ import com.viram.weather.api.ApiStage
 import com.viram.weather.di.Injectable
 import com.viram.weather.model.WeatherResult
 import com.viram.weather.vo.UserCity
+import kotlinx.android.synthetic.main.forecast_layout.*
 import kotlinx.android.synthetic.main.fragment_city.*
 import javax.inject.Inject
 

@@ -19,7 +19,17 @@ class HomeViewModel @Inject constructor(val repository: WeatherRepository) : Vie
     val allSavedCity: LiveData<List<UserCity>> =  repository.allCity
 
 
-//
+    fun getTodayWeather(latitude: Double?, longitude: Double?): MutableLiveData<ApiStage<WeatherResult>> {
+
+        var data =  MutableLiveData<ApiStage<WeatherResult>>()
+        data.value = ApiStage.Loading()
+
+        data =  repository.getTodayWeather(latitude,longitude) as MutableLiveData<ApiStage<WeatherResult>>
+
+
+        return data
+
+    }
     fun deleteUserCity(userCity: String) {
         repository.delete(userCity)
     }

@@ -29,9 +29,11 @@ import com.viram.weather.Util
 import com.viram.weather.adapter.UserLocationListAdapter
 import com.viram.weather.api.ApiStage
 import com.viram.weather.di.Injectable
+import com.viram.weather.model.WeatherResult
 import com.viram.weather.ui.city.AddCityFragment
 import com.viram.weather.ui.city.CityFragment
 import com.viram.weather.vo.UserCity
+import kotlinx.android.synthetic.main.forecast_layout.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import javax.inject.Inject
 
@@ -116,8 +118,16 @@ class HomeFragment : Fragment() , Injectable {
 
     fun getAllCity(){
         homeViewModel.allSavedCity.observe(viewLifecycleOwner, Observer { list->
+            if(list.isEmpty()){
+                ll_forecast.visibility = View.VISIBLE
+                recyclerView_userCity.visibility = View.GONE
+            }else{
+                ll_forecast.visibility = View.GONE
+                recyclerView_userCity.visibility = View.VISIBLE
+            }
 
             userlocationAdapter?.setCity(list)
+
         })
     }
     fun checkLocationPermission(){
@@ -162,6 +172,15 @@ class HomeFragment : Fragment() , Injectable {
                 mLocation = location
                 Log.e("location latitude", location?.latitude.toString())
                 Log.e("location longitude", location?.longitude.toString())
+                if(userlocationAdapter?.itemCount == 0){
+                    ll_forecast.visibility = View.VISIBLE
+                    recyclerView_userCity.visibility = View.GONE
+                    getWeatherFromServer(location?.latitude, location?.longitude)
+                }else{
+                    ll_forecast.visibility = View.GONE
+                    recyclerView_userCity.visibility = View.VISIBLE
+                }
+
             }
     }
 
@@ -198,6 +217,39 @@ class HomeFragment : Fragment() , Injectable {
         }
     }
 
+    private fun getWeatherFromServer(latitude: Double?, longitude: Double?) {
+        if (Util.isNetworkAvailable(activity)) {
+
+            homeViewModel.getTodayWeather(latitude,longitude).observe(viewLifecycleOwner, { response ->
+                when (response) {
+                    is ApiStage.Success -> {
+                        try {
+                            if (response.data?.weather?.isNotEmpty()!!) {
+                                setValue(response.data)
+                            }
+                        } catch (e: Exception) {
+                            e.printStackTrace()
+                        }
+                    }
+                    is ApiStage.Failure -> {
+                    }
+
+                }
+            })
+
+        }else{
+            Util.showToastLong(
+                mContext,
+                getString(R.string.internet_not_connected)
+            )
+        }
+    }
+    fun setValue(data: WeatherResult) {
+        txt_temperature_value.text = data.main.temp.toString().plus(" C")
+        txt_humidity_value.text = data.main.humidity.toString()
+        txt_rain_value.text = data.weather[0].main
+        txt_wind_value.text = data.wind.speed.toString().plus("KMH")
+    }
     fun openAppSetting(activity: Activity){
         Intent(ACTION_APPLICATION_DETAILS_SETTINGS,
             Uri.parse("package:${activity.packageName}")).apply {
@@ -205,5 +257,10 @@ class HomeFragment : Fragment() , Injectable {
             addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(this)
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        userlocationAdapter = null
     }
 }

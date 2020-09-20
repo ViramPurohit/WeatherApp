@@ -8,8 +8,5 @@ import javax.inject.Inject
 
 class HelpViewModel @Inject constructor(val repository: WeatherRepository) : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is notifications Fragment"
-    }
-    val text: LiveData<String> = _text
+
 }
