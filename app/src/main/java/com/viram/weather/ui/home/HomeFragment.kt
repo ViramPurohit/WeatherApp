@@ -162,7 +162,6 @@ class HomeFragment : Fragment() , Injectable {
                 mLocation = location
                 Log.e("location latitude", location?.latitude.toString())
                 Log.e("location longitude", location?.longitude.toString())
-                getWeatherFromServer(location?.latitude, location?.longitude)
             }
     }
 
@@ -199,38 +198,6 @@ class HomeFragment : Fragment() , Injectable {
         }
     }
 
-    private fun getWeatherFromServer(latitude: Double?, longitude: Double?) {
-        if (Util.isNetworkAvailable(activity)) {
-
-            fragment_home_pgBar.visibility = View.VISIBLE
-            homeViewModel.getTodayWeather(latitude,longitude).observe(viewLifecycleOwner, { response ->
-                when (response) {
-                    is ApiStage.Loading -> fragment_home_pgBar.visibility = View.VISIBLE
-                    is ApiStage.Success -> {
-                        try {
-                            if (response.data?.weather?.isNotEmpty()!!) {
-
-                            }
-                        } catch (e: Exception) {
-                            e.printStackTrace()
-                        }
-                        fragment_home_pgBar.visibility = View.GONE
-                    }
-                    is ApiStage.Failure -> {
-                        fragment_home_pgBar.visibility = View.GONE
-                    }
-
-                }
-            })
-
-
-        }else{
-            Util.showToastLong(
-                mContext,
-                getString(R.string.internet_not_connected)
-            )
-        }
-    }
     fun openAppSetting(activity: Activity){
         Intent(ACTION_APPLICATION_DETAILS_SETTINGS,
             Uri.parse("package:${activity.packageName}")).apply {

@@ -1,0 +1,43 @@
+{
+  "coord": {
+    "lon": 72.57,
+    "lat": 23.02
+  },
+  "weather": [
+    {
+      "id": 721,
+      "main": "Haze",
+      "description": "haze",
+      "icon": "50d"
+    }
+  ],
+  "base": "stations",
+  "main": {
+    "temp": 304.15,
+    "feels_like": 310.32,
+    "temp_min": 304.15,
+    "temp_max": 304.15,
+    "pressure": 1004,
+    "humidity": 84
+  },
+  "visibility": 4000,
+  "wind": {
+    "speed": 3.2,
+    "deg": 326
+  },
+  "clouds": {
+    "all": 40
+  },
+  "dt": 1600578172,
+  "sys": {
+    "type": 1,
+    "id": 9049,
+    "country": "IN",
+    "sunrise": 1600563472,
+    "sunset": 1600607308
+  },
+  "timezone": 19800,
+  "id": 1279233,
+  "name": "Ahmedabad",
+  "cod": 200
+}
