@@ -13,6 +13,341 @@
             <set />
           </value>
         </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/build/generated/source/kapt/uatDebug/com/najm/publicapp/AppStorage_HiltComponents.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/build/tmp/kapt3/stubs/uatDebug/com/najm/publicapp/api/EServiceRepository.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/java/com/najm/publicapp/DashboardActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/java/com/najm/publicapp/OCRActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/java/com/najm/publicapp/SplashActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/java/com/najm/publicapp/api/EServiceRepository.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/java/com/najm/publicapp/api/PublicappService.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/java/com/najm/publicapp/claimreceiving/ClaimReceivingDetail.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/java/com/najm/publicapp/claimreceiving/ClaimReceivingDetailViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/java/com/najm/publicapp/claimreceiving/ClaimReceivingFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/java/com/najm/publicapp/claimreceiving/ClaimReceivingViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/java/com/najm/publicapp/common/ConstantData.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/java/com/najm/publicapp/contactus/objectionform/AddObjectionViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/java/com/najm/publicapp/di/ContextModule.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/java/com/najm/publicapp/discount/FAQViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/java/com/najm/publicapp/discount/NCDRuleViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/java/com/najm/publicapp/ecr/dashboard/EcrdashboardViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/java/com/najm/publicapp/ecr/dashboard/accidents/AccidentDataSource.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/java/com/najm/publicapp/ecr/dashboard/accidents/AccidentDataSourceFactory.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/java/com/najm/publicapp/ecr/dashboard/accidents/EcraccidentListViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/java/com/najm/publicapp/ecr/dashboard/claim/ClaimListDataSource.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/java/com/najm/publicapp/ecr/dashboard/claim/ClaimListDataSourceFactory.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/java/com/najm/publicapp/ecr/dashboard/claim/EcrclaimViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/java/com/najm/publicapp/ecr/dashboard/claimstatus/ClaimStatusViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/java/com/najm/publicapp/ecr/dashboard/claimsubmission/EcrclaimSubmisionViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/java/com/najm/publicapp/ecr/dashboard/claimsubmitsuccess/ClaimSubmissionSuccessFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/java/com/najm/publicapp/ecr/dashboard/claimsubmitsuccess/ClaimSubmissionSuccessViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/java/com/najm/publicapp/ecr/dashboard/summary/AccidentSummaryViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/java/com/najm/publicapp/ecr/dashboard/unregisterda/UnregisteDADataSource.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/java/com/najm/publicapp/ecr/dashboard/unregisterda/UnregisterDAViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/java/com/najm/publicapp/ecr/dashboard/unregisterda/UnregisterDataSourceFactory.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/java/com/najm/publicapp/ecr/dashboard/vehicles/EcrvehiclesViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/java/com/najm/publicapp/ecr/dashboard/vehicles/VehicleDataSource.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/java/com/najm/publicapp/ecr/dashboard/vehicles/VehicleDataSourceFactory.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/java/com/najm/publicapp/ecr/login/ECRLoginFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/java/com/najm/publicapp/ecr/login/EcrConfirmPassViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/java/com/najm/publicapp/ecr/login/EcrSignupConfirmViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/java/com/najm/publicapp/ecr/login/EcrforgotPasswordViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/java/com/najm/publicapp/ecr/login/EcrloginViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/java/com/najm/publicapp/ecr/login/EcrsignupViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/java/com/najm/publicapp/eservice/EServiceDetailsFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/java/com/najm/publicapp/eservice/EServiceFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/java/com/najm/publicapp/fragment/BaseFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/java/com/najm/publicapp/home/HomeFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/java/com/najm/publicapp/home/HomeViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/java/com/najm/publicapp/myvehicles/AddVehicleViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/java/com/najm/publicapp/myvehicles/MyVehicleViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/java/com/najm/publicapp/print/PrintFormViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/java/com/najm/publicapp/service/UploadImageService.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/java/com/najm/publicapp/settings/ChangeEmailFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/java/com/najm/publicapp/settings/ChangeLanguageFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/java/com/najm/publicapp/settings/ChangeMobileFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/java/com/najm/publicapp/settings/ChangePasswordFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/java/com/najm/publicapp/settings/SettingFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/java/com/najm/publicapp/settings/SettingViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/java/com/najm/publicapp/viewmodel/BranchViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/java/com/najm/publicapp/viewmodel/MainViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/java/com/najm/publicapp/webviews/WebviewFragments.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/res/layout/activity_dashboard.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/res/layout/change_email_fragment.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/res/layout/change_language_fragment.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/res/layout/change_mobile_fragment.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/res/layout/change_password_fragment.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/res/layout/ecrda_fragment.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/app/src/main/res/layout/setting_fragment.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/Viram_Workplace/PublicApp-Android/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/build.gradle">
           <value>
             <set />
@@ -24,6 +359,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/build/tmp/kapt3/stubs/debug/com/viram/weather/di/AppComponent.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/androidTest/java/com/viram/weather/db/CityDaoTest.kt">
           <value>
             <set />
           </value>
@@ -309,6 +649,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/release/res/values/google_maps_api.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/test/java/com/viram/weather/ExampleUnitTest.kt">
           <value>
             <set />
           </value>

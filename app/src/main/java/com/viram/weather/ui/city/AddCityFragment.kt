@@ -203,4 +203,6 @@ class AddCityFragment : Fragment(), Injectable,OnMapReadyCallback {
             Util.showToastLong(mContext, getString(R.string.not_getting_address))
         }
     }
+
+
 }
